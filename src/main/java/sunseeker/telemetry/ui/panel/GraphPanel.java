@@ -36,8 +36,8 @@ public class GraphPanel extends XChartPanel implements LiveDataSource.Subscriber
                 for (String key : data.keySet()) {
                     List<Double> values = data.get(key);
 
-                    values.remove(0);
-                    values.add(current.get(key));
+                    values.remove(values.size()-1);
+                    values.add(0, current.get(key));
 
                     chart.updateXYSeries(key, filler, values, null);
                 }
